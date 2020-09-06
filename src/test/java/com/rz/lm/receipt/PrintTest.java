@@ -52,4 +52,23 @@ public class PrintTest {
         assertThat(result).isEqualTo(expected);
     }
 
+    @Test
+    public void whenPrintWithMultipleItemsOfSameType_outputShouldBeExpected() {
+        // given
+        Basket basket = new Basket();
+        Good given1 = Good.taxFree("item name 1", BigDecimal.valueOf(1.00));
+        basket.addGood(given1);
+
+        Good given2 = Good.taxFree("item name 1", BigDecimal.valueOf(1.00));
+        basket.addGood(given2);
+
+        Receipt receipt = new Receipt(basket);
+        String expected = "2 item name 1: 2.00\nSales Taxes: 0.00\nTotal: 2.00";
+
+        // when
+        String result = receipt.print();
+
+        // then
+        assertThat(result).isEqualTo(expected);
+    }
 }
