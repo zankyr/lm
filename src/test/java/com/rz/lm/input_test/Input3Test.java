@@ -3,15 +3,15 @@ package com.rz.lm.input_test;
 import com.rz.lm.Basket;
 import com.rz.lm.Good;
 import com.rz.lm.Receipt;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class Input3Test {
     @Test
-    void givenInput3_resultShoudBeCorrect() {
+    public void givenInput3_resultShoudBeCorrect() {
         // given
         Good importedParfume = Good.importedTaxed("imported bottle of perfume", BigDecimal.valueOf(27.99));
         Good parfume = Good.taxed("bottle of perfume", BigDecimal.valueOf(18.99));

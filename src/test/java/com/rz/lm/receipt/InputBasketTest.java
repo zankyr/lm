@@ -1,14 +1,13 @@
 package com.rz.lm.receipt;
 
 import com.rz.lm.Receipt;
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.Test;
 
 public class InputBasketTest {
-    @Test
-    void whenBasketIsNull_thenThrowException() {
-        assertThrows(Exception.class, () -> new Receipt(null).print());
+    @Test(expected = Exception.class)
+    public void whenBasketIsNull_thenThrowException() {
+        // when
+        new Receipt(null).print();
     }
 
 

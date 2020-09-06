@@ -1,16 +1,16 @@
 package com.rz.lm.good;
 
 import com.rz.lm.Good;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-class TaxAmountTest {
+public class TaxAmountTest {
 
     @Test
-    void whenTaxFreeGood_taxesShouldBeZero() {
+    public void whenTaxFreeGood_taxesShouldBeZero() {
         // given
         Good good = Good.taxFree("good", BigDecimal.valueOf(10.00));
 
@@ -19,7 +19,7 @@ class TaxAmountTest {
     }
 
     @Test
-    void whenTaxesGood_taxesShouldBeCorrect() {
+    public void whenTaxesGood_taxesShouldBeCorrect() {
         // given
         Good good = Good.taxed("good", BigDecimal.valueOf(10.00));
 
@@ -28,7 +28,7 @@ class TaxAmountTest {
     }
 
     @Test
-    void whenImportedTaxFreeGood_taxesShouldBeCorrect() {
+    public void whenImportedTaxFreeGood_taxesShouldBeCorrect() {
         // given
         Good good = Good.importedTaxFree("good", BigDecimal.valueOf(10.00));
 
@@ -37,7 +37,7 @@ class TaxAmountTest {
     }
 
     @Test
-    void whenImportedTaxedGood_taxesShouldBeCorrect() {
+    public void whenImportedTaxedGood_taxesShouldBeCorrect() {
         // given
         Good good = Good.importedTaxed("good", BigDecimal.valueOf(10.00));
 

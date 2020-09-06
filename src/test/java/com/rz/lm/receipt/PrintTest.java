@@ -3,22 +3,21 @@ package com.rz.lm.receipt;
 import com.rz.lm.Basket;
 import com.rz.lm.Good;
 import com.rz.lm.Receipt;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PrintTest {
-    @Test
-    void whenPrint_ifBasketIsEmpty_thenThrowException() {
-        // then
-        assertThrows(Exception.class, () -> new Receipt(new Basket()).print());
+    @Test(expected = Exception.class)
+    public void whenPrint_ifBasketIsEmpty_thenThrowException() {
+        // when
+        new Receipt(new Basket()).print();
     }
 
     @Test
-    void whenPrint_outputShouldBeExpected() {
+    public void whenPrint_outputShouldBeExpected() {
         // given
         Good given = Good.taxFree("good name", BigDecimal.valueOf(1.00));
         Basket basket = new Basket();
@@ -34,7 +33,7 @@ public class PrintTest {
     }
 
     @Test
-    void whenPrintWithMultipleItems_outputShouldBeExpected() {
+    public void whenPrintWithMultipleItems_outputShouldBeExpected() {
         // given
         Basket basket = new Basket();
         Good given1 = Good.taxFree("item name 1", BigDecimal.valueOf(1.00));
